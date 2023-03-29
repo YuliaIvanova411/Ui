@@ -3,7 +3,11 @@
     <string name="app_name">ПервоеПриложение</string>
     <string name="nmedia">НМедиа!</string>
     <string name="description_post_menu">Меню</string>
-    <string name="description_post_menu">М</string>
+    <string name="description_post_menu">Меню</string>
     <string name="description_likes">Лайки</string>
-    <string name="description_likes">Л</string>
+    <string name="description_likes">Лай</string>
+    <string name="description_saw">Просмотры</string>
+    <string name="description_saw">Пр</string>
+    <string name="description_share">Поделиться</string>
+    <string name="description_share">П</string>
 </resources>

@@ -13,6 +13,7 @@
         android:layout_height="@dimen/avatar_size"
         android:contentDescription="@string/description_post_author_avatar"
         android:src="@drawable/ic_launcher_foreground"
+        android:layout_marginBottom="@dimen/indent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="@id/barrier2"
         app:layout_constraintTop_toTopOf="parent"
@@ -83,8 +84,20 @@
         android:background="@android:color/transparent"
         android:contentDescription="@string/description_likes"
         android:src="@drawable/ic_outline_favorite_border_24"
-        app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="@dimen/indent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/barrier3" />
+
+    <ImageButton
+        android:id="@+id/saw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/indent"
+        android:layout_marginEnd="@dimen/small"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/description_saw"
+        android:src="@drawable/ic_baseline_visibility_24"
+        app:layout_constraintEnd_toStartOf="@id/countSaw"
         app:layout_constraintTop_toBottomOf="@id/barrier3" />
 
     <ImageButton
@@ -92,12 +105,43 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
-        android:contentDescription="@string/description_likes"
+        android:contentDescription="@string/description_share"
         android:src="@drawable/ic_baseline_share_24"
-        app:layout_constraintStart_toEndOf="@id/likes"
+        app:layout_constraintStart_toEndOf="@id/countLikes"
         android:layout_marginStart="@dimen/indent"
         android:layout_marginTop="@dimen/indent"
         app:layout_constraintTop_toBottomOf="@id/barrier3" />
 
+    <TextView
+        android:id="@+id/countLikes"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/small"
+        app:layout_constraintStart_toEndOf="@id/likes"
+        app:layout_constraintBottom_toBottomOf="@id/likes"
+        app:layout_constraintTop_toTopOf="@id/likes"
+        app:layout_constraintVertical_chainStyle="spread"
+        tools:text="105" />
+
+    <TextView
+        android:id="@+id/countShare"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/small"
+        app:layout_constraintStart_toEndOf="@id/share"
+        app:layout_constraintBottom_toBottomOf="@id/share"
+        app:layout_constraintTop_toTopOf="@id/share"
+        app:layout_constraintVertical_chainStyle="spread"
+        tools:text="18" />
+
+    <TextView
+        android:id="@+id/countSaw"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/saw"
+        app:layout_constraintTop_toTopOf="@id/saw"
+        app:layout_constraintVertical_chainStyle="spread"
+        tools:text="3500" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
