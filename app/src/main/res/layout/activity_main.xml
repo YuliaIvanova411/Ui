@@ -50,7 +50,7 @@
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
         android:contentDescription="@string/description_post_menu"
-        android:src="@drawable/ic_baseline_more_vert_24"
+        android:src="@drawable/ic_baseline_more_vert_48"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
