@@ -1,4 +1,4 @@
-package ru.netology .nmedia
+package ru.netology.nmedia
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -48,9 +48,9 @@ class MainActivity : AppCompatActivity() {
                 Log.d("stuff", "stuff")
             }
 
-            //avatar.setOnClickListener {
-           //     Log.d("stuff", "avatar")
-           // }
+           avatar.setOnClickListener {
+                Log.d("stuff", "avatar")
+            }
 
             like?.setOnClickListener {
                 post.likedByMe = !post.likedByMe
