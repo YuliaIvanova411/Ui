@@ -2,12 +2,22 @@ package ru.netology.nmedia
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import ru.netology.nmedia.databinding.ActivityMainBinding
 import ru.netology.nmedia.dto.Post
 
 
 class MainActivity : AppCompatActivity() {
+
+    fun count(number: Long) = when (number) {
+        in 0..999 -> number.toString()
+        in 1000..9_999
+        -> (number / 1_000).toString() + "," + ((number % 1_000)/100).toString() + "K"
+        in 10_000..999_999
+        -> (number / 1_000).toString() + "K"
+        in 1_000_000 ..99_999_999
+        -> (number / 1_000_000).toString() + "," + ((number % 1_000_000)/100_000).toString() + "M"
+        else -> "wtf"
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivityMainBinding.inflate(layoutInflater)
@@ -27,29 +37,20 @@ class MainActivity : AppCompatActivity() {
             published.text = post.published
             content.text = post.content
 
-            fun count(number: Long) = when (number) {
-                in 0..999 -> number
-                in 1000..9_999
-                -> (number / 1_000).toString() + "," + ((number % 1_000)/100).toString() + "K"
-                in 10_000..999_999
-                -> (number / 1_000).toString() + "K"
-                in 1_000_000 ..99_999_999
-                -> (number / 1_000_000).toString() + "," + ((number % 1_000_000)/100_000).toString() + "M"
-                else -> "wtf"
-            }
+
 
           if (post.likedByMe) {
             like?.setImageResource(R.drawable.ic_liked_24)
             }
-            countLikes?.text = (count(post.likes)).toString()
+            countLikes?.text = (count(post.likes))
 
 
             root.setOnClickListener {
-                Log.d("stuff", "stuff")
+                println("anywhere clicked")
             }
 
            avatar.setOnClickListener {
-                Log.d("stuff", "avatar")
+                println("avatar clicked")
             }
 
             like?.setOnClickListener {
@@ -58,15 +59,17 @@ class MainActivity : AppCompatActivity() {
                     if (post.likedByMe) R.drawable.ic_liked_24 else R.drawable.ic_like_24
                 )
                 if (post.likedByMe) post.likes++ else post.likes--
-                countLikes?.text = (count(post.likes)).toString()
+                countLikes?.text = (count(post.likes))
 
             }
             share.setOnClickListener{
                 post.share++
-                countShare?.text = count(post.share) as CharSequence?
+                countShare?.text = count(post.share)
             }
 
         }
 
     }
+
+
 }
