@@ -1,0 +1,42 @@
+package ru.netology.nmedia.adapter
+
+import androidx.recyclerview.widget.RecyclerView.ViewHolder
+import ru.netology.nmedia.R
+import ru.netology.nmedia.databinding.CardPostBinding
+import ru.netology.nmedia.dto.Post
+
+class PostViewHolder(
+    private val binding: CardPostBinding,
+    private val onLikeClicked: OnLikeListener,
+    private val onShareClicked: OnShareListener,
+) : ViewHolder(binding.root) {
+    fun count(number: Long) = when (number) {
+        in 0..999 -> number.toString()
+        in 1000..9_999
+        -> (number / 1_000).toString() + "," + ((number % 1_000)/100).toString() + "K"
+        in 10_000..999_999
+        -> (number / 1_000).toString() + "K"
+        in 1_000_000 ..99_999_999
+        -> (number / 1_000_000).toString() + "," + ((number % 1_000_000)/100_000).toString() + "M"
+        else -> "wtf"
+    }
+
+    fun bind(post: Post) {
+        with(binding) {
+            author.text = post.author
+            published.text = post.published
+            content.text = post.content
+            like.setImageResource(
+                if (post.likedByMe) R.drawable.ic_liked_24 else R.drawable.ic_like_24
+            )
+            like.setOnClickListener{
+                onLikeClicked(post)
+            }
+            countLikes.text = (count(post.likes))
+            share.setOnClickListener {
+                onShareClicked(post)
+            }
+            countShare.text = count(post.share)
+        }
+    }
+}
