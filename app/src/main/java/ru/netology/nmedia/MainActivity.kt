@@ -2,9 +2,13 @@ package ru.netology.nmedia
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.viewModels
 import ru.netology.nmedia.adapter.PostAdapter
+import ru.netology.nmedia.adapter.PostListener
 import ru.netology.nmedia.databinding.ActivityMainBinding
+import ru.netology.nmedia.dto.Post
+import ru.netology.nmedia.utils.AndroidUtils
 import ru.netology.nmedia.viewmodel.PostViewModel
 
 
@@ -19,12 +23,56 @@ class MainActivity : AppCompatActivity() {
         val viewModel: PostViewModel by viewModels()
 
         val adapter = PostAdapter(
-            onLikeClicked = {
-                viewModel.likeById(it.id)
-            },
-            onShareClicked = {
-                viewModel.shareById(it.id)
-            })
+            object: PostListener {
+                override fun onRemove(post: Post) {
+                    viewModel.removeById(post.id)
+                }
+
+                override fun onEdit(post: Post) {
+                    viewModel.edit(post)
+                }
+
+                override fun onLike(post: Post) {
+                    viewModel.likeById(post.id)
+                }
+
+                override fun onShare(post: Post) {
+                    viewModel.shareById(post.id)
+                }
+
+            }
+
+        )
+        viewModel.edited.observe(this) {
+            if (it.id == 0L) {
+                return@observe
+            }
+
+            with(activityMainBinding.content) {
+                requestFocus()
+                setText(post.content)
+            }
+
+        }
+        activityMainBinding.save?.setOnClickListener{
+            with(activityMainBinding.content) {
+                if (text.isNullOrBlank()) {
+                    Toast.makeText(
+                        this@MainActivity,
+                        R.string.content_must_not_be_empty,
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    return@setOnClickListener
+                }
+
+                viewModel.changeContent(text.toString())
+                viewModel.save()
+
+                setText("")
+                clearFocus()
+                AndroidUtils.hideKeyboard(this)
+            }
+        }
 
         viewModel.data.observe(this) { posts ->
             adapter.submitList(posts)
@@ -34,6 +82,10 @@ class MainActivity : AppCompatActivity() {
     }
 
 }
+
+
+
+
 
 
 

@@ -6,4 +6,8 @@
     <string name="description_like">Likes</string>
     <string name="description_saw">Saw</string>
     <string name="description_share">Share</string>
+    <string name="remove">Remove</string>
+    <string name="content">Content</string>
+    <string name="content_must_not_be_empty">Content must not be empty</string>
+    <string name="edit">edit</string>
 </resources>
