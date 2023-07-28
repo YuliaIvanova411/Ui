@@ -77,7 +77,8 @@ class MainActivity : AppCompatActivity() {
             }
         }
         activityMainBinding.cancelEdit?.setOnClickListener {
-            viewModel.clearEdit()
+            activityMainBinding.content.setText("")
+            activityMainBinding.group?.visibility = View.GONE
         }
 
         viewModel.data.observe(this) { posts ->
