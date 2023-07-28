@@ -6,8 +6,10 @@
     <string name="description_like">Лайки</string>
     <string name="description_saw">Просмотры</string>
     <string name="description_share">Поделиться</string>
+    <string name="description_post_save">Сохранить</string>
     <string name="remove">Удалить</string>
     <string name="content">Контент</string>
     <string name="content_must_not_be_empty">Пост не должен быть пустым</string>
     <string name="edit">Редактировать</string>
-</resources>
+    <string name="editing">Редактирование</string>
+    </resources>
