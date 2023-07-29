@@ -46,10 +46,10 @@ class MainActivity : AppCompatActivity() {
         )
         viewModel.edited.observe(this) {post ->
             if (post.id == 0L) {
-                activityMainBinding.group?.visibility = View.GONE
+                activityMainBinding.group.visibility = View.GONE
                 return@observe
             }
-            activityMainBinding.group?.visibility = View.VISIBLE
+            activityMainBinding.group.visibility = View.VISIBLE
 
             with(activityMainBinding.content) {
                 requestFocus()
@@ -76,9 +76,9 @@ class MainActivity : AppCompatActivity() {
                 AndroidUtils.hideKeyboard(this)
             }
         }
-        activityMainBinding.cancelEdit?.setOnClickListener {
-            activityMainBinding.content.setText("")
-            activityMainBinding.group?.visibility = View.GONE
+        activityMainBinding.cancelEdit.setOnClickListener {
+            viewModel.clearEdit()
+            activityMainBinding.group.visibility = View.GONE
         }
 
         viewModel.data.observe(this) { posts ->
