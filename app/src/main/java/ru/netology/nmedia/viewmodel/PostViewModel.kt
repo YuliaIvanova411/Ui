@@ -49,6 +49,10 @@ class PostViewModel : ViewModel() {
         }
 
     }
+    fun clearEdit() {
+        edited.value = empty
+
+    }
 
 
 }

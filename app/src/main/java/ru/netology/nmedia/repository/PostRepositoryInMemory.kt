@@ -85,7 +85,7 @@ class PostRepositoryInMemory: PostRepository {
         if (newPost.id == 0L) {
             post = listOf(
                 newPost.copy(
-                    id = nextId++,
+                    id = ++nextId,
                     author = "Me",
                     likedByMe = false,
                     published = "Now",

@@ -44,15 +44,16 @@
         app:layout_constraintVertical_chainStyle="spread"
         tools:text="@sample/posts.json/data/published" />
 
-    <ImageButton
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/menu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
         android:contentDescription="@string/description_post_menu"
-        android:src="@drawable/ic_baseline_more_vert_48"
+        app:icon="@drawable/ic_baseline_more_vert_48"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/Widget.App.Button.OutlinedButton.IconOnly"/>
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/topBarrier"
@@ -77,18 +78,21 @@
         app:barrierDirection="bottom"
         app:constraint_referenced_ids="content" />
 
-    <ImageButton
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/like"
+        style="@style/Widget.AppTheme.LikeCheckBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/indent"
+        android:button="@drawable/like_selector"
+        android:checkable="true"
         android:background="@android:color/transparent"
         android:contentDescription="@string/description_like"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/bottomBarrier"
-        app:srcCompat="@drawable/ic_like_24" />
+         />
 
-    <ImageView
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/saw"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -96,52 +100,56 @@
         android:layout_marginEnd="@dimen/small"
         android:background="@android:color/transparent"
         android:contentDescription="@string/description_saw"
-        android:src="@drawable/ic_baseline_visibility_24"
-        app:layout_constraintEnd_toStartOf="@id/countSaw"
-        app:layout_constraintTop_toBottomOf="@id/bottomBarrier" />
+        app:icon="@drawable/ic_baseline_visibility_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bottomBarrier"
+        style="@style/Widget.App.Button.OutlinedButton.IconOnly"/>
 
-    <ImageButton
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/share"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/indent"
-        android:background="@android:color/transparent"
-        android:contentDescription="@string/description_share"
-        android:src="@drawable/ic_baseline_share_24"
-        app:layout_constraintStart_toEndOf="@id/countLikes"
         android:layout_marginStart="@dimen/indent"
-        app:layout_constraintTop_toBottomOf="@id/bottomBarrier" />
-
-    <TextView
-        android:id="@+id/countLikes"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/small"
+        android:contentDescription="@string/description_share"
         app:layout_constraintStart_toEndOf="@id/like"
-        app:layout_constraintBottom_toBottomOf="@id/like"
-        app:layout_constraintTop_toTopOf="@id/like"
-        app:layout_constraintVertical_chainStyle="spread"
-        tools:text="105" />
+        android:background="@android:color/transparent"
+        app:layout_constraintTop_toBottomOf="@id/bottomBarrier"
+        app:icon="@drawable/ic_baseline_share_24"
+        style="@style/Widget.App.Button.OutlinedButton.IconOnly"/>
 
-    <TextView
-        android:id="@+id/countShare"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/small"
-        app:layout_constraintStart_toEndOf="@id/share"
-        app:layout_constraintBottom_toBottomOf="@id/share"
-        app:layout_constraintTop_toTopOf="@id/share"
-        app:layout_constraintVertical_chainStyle="spread"
-        tools:text="18" />
 
-    <TextView
-        android:id="@+id/countSaw"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/saw"
-        app:layout_constraintTop_toTopOf="@id/saw"
-        app:layout_constraintVertical_chainStyle="spread"
-        tools:text="3500" />
+<!--    <TextView-->
+<!--        android:id="@+id/countLikes"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="@dimen/small"-->
+<!--        app:layout_constraintStart_toEndOf="@id/like"-->
+<!--        app:layout_constraintBottom_toBottomOf="@id/like"-->
+<!--        app:layout_constraintTop_toTopOf="@id/like"-->
+<!--        app:layout_constraintVertical_chainStyle="spread"-->
+<!--        tools:text="105" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/countShare"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="@dimen/small"-->
+<!--        app:layout_constraintStart_toEndOf="@id/share"-->
+<!--        app:layout_constraintBottom_toBottomOf="@id/share"-->
+<!--        app:layout_constraintTop_toTopOf="@id/share"-->
+<!--        app:layout_constraintVertical_chainStyle="spread"-->
+<!--        tools:text="18" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/countSaw"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintBottom_toBottomOf="@id/saw"-->
+<!--        app:layout_constraintTop_toTopOf="@id/saw"-->
+<!--        app:layout_constraintVertical_chainStyle="spread"-->
+<!--        tools:text="3500" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

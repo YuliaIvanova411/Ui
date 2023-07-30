@@ -76,9 +76,10 @@ class MainActivity : AppCompatActivity() {
                 AndroidUtils.hideKeyboard(this)
             }
         }
-        activityMainBinding.cancelEdit?.setOnClickListener {
+        activityMainBinding.cancelEdit.setOnClickListener {
+            viewModel.clearEdit()
             activityMainBinding.content.setText("")
-            activityMainBinding.group?.visibility = View.GONE
+            activityMainBinding.group.visibility = View.GONE
         }
 
         viewModel.data.observe(this) { posts ->
