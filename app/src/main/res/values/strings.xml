@@ -12,4 +12,8 @@
     <string name="content_must_not_be_empty">Content must not be empty</string>
     <string name="edit">Edit</string>
     <string name="editing">Editing</string>
+    <string name="chooser_share_post">Share post</string>
+    <string name="error_empty_content">Content can\'t be empty</string>
+    <string name="title_activity_intent_handler" translatable="false">IntentHandlerActivity</string>
+    <string name="new_post">new post</string>
 </resources>
