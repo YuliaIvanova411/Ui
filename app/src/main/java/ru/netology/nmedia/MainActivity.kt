@@ -88,10 +88,10 @@ class MainActivity : AppCompatActivity() {
 
 
 
-//        activityMainBinding.cancelEdit.setOnClickListener {
+//       activityMainBinding.cancelEdit.setOnClickListener {
 //            viewModel.clearEdit()
-//            activityMainBinding.content.setText("")
-//            activityMainBinding.group.visibility = View.GONE
+//           activityMainBinding.content.setText("")
+//           activityMainBinding.group.visibility = View.GONE
 //        }
 
 

@@ -23,6 +23,11 @@ class EditPostActivity : AppCompatActivity() {
             }
             finish()
         }
+        binding.cancelButton.setOnClickListener{
+            val intent = Intent()
+            setResult(Activity.RESULT_CANCELED, intent)
+            finish()
+        }
     }
     object Contract : ActivityResultContract<String, String?>() {
         override fun createIntent(context: Context, input: String) =

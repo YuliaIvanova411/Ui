@@ -125,25 +125,28 @@
         android:id="@+id/videoLayout"
         android:layout_width="0dp"
         android:layout_height="250dp"
-        android:visibility="gone"
+        android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@id/bottomBarrier"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/content">
+        app:layout_constraintTop_toBottomOf="@+id/content"
+        android:clickable="true"
+        android:focusable="true">
 
         <VideoView
             android:id="@+id/videoView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:clickable="true"
-            android:focusable="true"
-            android:visibility="visible" />
+            android:src="@drawable/video"
+            android:background="@android:color/transparent"/>
 
         <ImageView
-            style="@style/Widget.AppCompat.FloatingButtons"
-            android:layout_width="@dimen/avatar_size"
-            android:layout_height="@dimen/avatar_size"
+            android:id="@+id/videoImage"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
             android:layout_gravity="center"
-            app:srcCompat="@drawable/baseline_play_arrow_24" />
+            android:src="@drawable/baseline_play_arrow_24"
+            app:tint="@color/colorAccent"
+             />
     </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

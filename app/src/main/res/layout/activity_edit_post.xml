@@ -33,5 +33,14 @@
         app:srcCompat="@drawable/ic_add_24dp"
         app:layout_anchor="@id/bottomAppBar"
         />
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/cancel_button"
+        style="@style/Widget.AppCompat.FloatingButtons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_anchor="@id/bottomAppBar"
+        app:fabSize="mini"
+        app:layout_anchorGravity="end"
+        app:srcCompat="@drawable/ic_cancel_48" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -17,7 +17,7 @@ class PostRepositoryInMemory: PostRepository {
             likes = 999999,
             likedByMe = false,
             share = 2,
-            videoLink = " → https://www.youtube.com/watch?v=gQPM9IuNv8k"
+            videoLink = "https://www.youtube.com/watch?v=gQPM9IuNv8k"
         ),
         Post(
             id = ++nextId,
