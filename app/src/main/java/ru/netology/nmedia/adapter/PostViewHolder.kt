@@ -51,11 +51,7 @@ class PostViewHolder(
             if(post.videoLink != null) {
                 videoLayout.visibility = View.VISIBLE
 
-                VideoView.apply {
-                    setVideoURI(Uri.parse(post.videoUrl))
-                    requestFocus()
-                    start()
-                }
+
             } else {
                 videoLayout.visibility = View.GONE
 
