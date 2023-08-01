@@ -3,8 +3,10 @@ package ru.netology.nmedia.adapter
 import android.net.Uri
 import android.view.View
 import android.widget.PopupMenu
-import androidx.recyclerview.widget.RecyclerView
+
+
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
+import kotlinx.coroutines.NonCancellable.start
 import ru.netology.nmedia.R
 import ru.netology.nmedia.databinding.CardPostBinding
 import ru.netology.nmedia.dto.Post
@@ -49,8 +51,8 @@ class PostViewHolder(
             if(post.videoLink != null) {
                 videoLayout.visibility = View.VISIBLE
 
-                videoView.apply {
-                    setVideoURI(Uri.parse(post.videoLink))
+                VideoView.apply {
+                    setVideoURI(Uri.parse(post.videoUrl))
                     requestFocus()
                     start()
                 }
